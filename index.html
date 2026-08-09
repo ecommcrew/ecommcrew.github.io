@@ -73,6 +73,8 @@
   .stat{background:var(--bg);padding:44px 32px}
   .stat b{font-family:'Archivo',sans-serif;font-size:clamp(34px,4.6vw,56px);font-weight:900;color:var(--blue);letter-spacing:-0.04em;display:block;line-height:1}
   .stat span{display:block;margin-top:12px;font-size:13.5px;color:var(--mute);letter-spacing:0.02em}
+  .stats-note{border-bottom:1px solid var(--line);padding:16px 0}
+  .stats-note .wrap{font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--mute)}
 
   /* MARQUEE */
   .mq{background:var(--blue);color:var(--bg);overflow:hidden;padding:16px 0}
@@ -217,6 +219,8 @@
     .mq-track span{font-size:12.5px;padding-right:18px;gap:18px}
     .stat b{font-size:32px}
     .stat span{font-size:12.8px}
+    .stats-note{padding:13px 0}
+    .stats-note .wrap{font-size:10.5px;letter-spacing:0.12em}
     .book-band{padding:54px 0 50px}
     .book-head{margin-bottom:26px}
     .book-head h2{font-size:clamp(26px,7.4vw,34px)}
@@ -273,12 +277,13 @@
     </div>
   </section>
 
-  <!-- STATS (PLACEHOLDER NUMBERS) -->
+  <!-- STATS -->
   <div class="stats">
-    <div class="stat"><b>+00%</b><span>Avg. increase in save rate</span></div>
-    <div class="stat"><b>$000K</b><span>Failed payments recovered</span></div>
-    <div class="stat"><b>00+</b><span>Subscription programs optimized</span></div>
+    <div class="stat"><b>&minus;20%</b><span>Subscriber cancellations</span></div>
+    <div class="stat"><b>+23%</b><span>Upsell revenue</span></div>
+    <div class="stat"><b>+30%</b><span>Customer lifetime value</span></div>
   </div>
+  <div class="stats-note"><div class="wrap">Typical client results within the first 60 days</div></div>
 
   <div class="mq">
     <div class="mq-track">
