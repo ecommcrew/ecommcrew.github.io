@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecomm Crew — Your Subscription Partner</title>
+<meta name="description" content="Ecomm Crew optimizes every subscriber touchpoint to increase retention, recover more revenue, and maximize customer lifetime value for Shopify subscription brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1219;
+    --bg-2:#141A24;
+    --bg-3:#1B2330;
+    --white:#FFFFFF;
+    --off:#F5F7FA;
+    --blue:#7FB5E5;
+    --blue-deep:#2E6DA4;
+    --line:rgba(255,255,255,0.10);
+    --line-l:#E1E6EC;
+    --mute:#8E9AAB;
+    --mute-l:#5A6472;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:92px}
+  body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%}
+  img,svg,iframe{max-width:100%}
+  h1,h2,h3,p{overflow-wrap:break-word}
+  ::selection{background:var(--blue);color:var(--bg)}
+  h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:0.98;letter-spacing:-0.03em;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+  .kicker{font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:22px}
+  .kicker-d{color:var(--blue-deep)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.6,.3,1),transform .8s cubic-bezier(.2,.6,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:17px 34px;border-radius:2px;border:2px solid transparent;transition:all .22s ease}
+  .btn svg{width:14px;height:14px;transition:transform .22s ease}
+  .btn:hover svg{transform:translateX(4px)}
+  .btn-fill{background:var(--blue);color:var(--bg)}
+  .btn-fill:hover{background:var(--white);transform:translateY(-2px)}
+  .btn-out{border-color:rgba(255,255,255,0.22);color:var(--white)}
+  .btn-out:hover{border-color:var(--blue);color:var(--blue)}
+  .btn-sm{padding:12px 24px;font-size:12.5px}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:80;background:rgba(14,18,25,0.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  body.menu-open header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg)}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
+  .logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:21px;letter-spacing:-0.04em;text-transform:uppercase}
+  .logo span{color:var(--blue)}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);transition:color .2s;display:flex;align-items:flex-start;gap:3px}
+  .nav-links a sup{font-size:8.5px;color:var(--blue);font-weight:700}
+  .nav-links a:hover{color:var(--white)}
+  .nav-links .nav-book{display:none}
+
+  /* HERO */
+  .hero{padding:130px 0 100px;position:relative}
+  .hero h1{font-size:clamp(46px,8.4vw,116px);font-weight:900;text-transform:uppercase;max-width:15ch;margin-bottom:34px}
+  .hero h1 s{color:var(--mute);text-decoration-color:var(--blue);text-decoration-thickness:5px}
+  .hero h1 em{color:var(--blue);font-style:normal}
+  .hero .lede{font-size:19px;color:var(--mute);max-width:600px;margin-bottom:42px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat{background:var(--bg);padding:44px 32px}
+  .stat b{font-family:'Archivo',sans-serif;font-size:clamp(34px,4.6vw,56px);font-weight:900;color:var(--blue);letter-spacing:-0.04em;display:block;line-height:1}
+  .stat span{display:block;margin-top:12px;font-size:13.5px;color:var(--mute);letter-spacing:0.02em}
+
+  /* MARQUEE */
+  .mq{background:var(--blue);color:var(--bg);overflow:hidden;padding:16px 0}
+  .mq-track{display:flex;width:max-content;animation:slide 30s linear infinite}
+  .mq-track span{font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding-right:26px;display:inline-flex;gap:26px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+
+  /* SECTIONS */
+  .sec{padding:120px 0}
+  .light{background:var(--off);color:#101620}
+  .light .kicker{color:var(--blue-deep)}
+  .dark2{background:var(--bg-2)}
+  .head{max-width:960px;margin-bottom:64px}
+  .head h2{font-size:clamp(32px,5.2vw,68px);font-weight:900;text-transform:uppercase}
+  .head p{margin-top:24px;font-size:18px;max-width:640px;color:var(--mute)}
+  .light .head p{color:var(--mute-l)}
+
+  /* STATEMENT */
+  .stmt{font-family:'Archivo',sans-serif;font-size:clamp(26px,4vw,50px);font-weight:800;line-height:1.12;letter-spacing:-0.03em;max-width:1100px}
+  .stmt em{color:var(--blue);font-style:normal}
+
+  /* PROCESS */
+  .proc{border-top:1px solid var(--line-l)}
+  .proc-row{display:grid;grid-template-columns:100px 1fr 1.15fr;gap:40px;padding:46px 0;border-bottom:1px solid var(--line-l);align-items:start;transition:padding-left .3s ease}
+  .proc-row:hover{padding-left:20px}
+  .proc-num{font-family:'Archivo',sans-serif;font-size:44px;font-weight:900;color:var(--blue-deep);letter-spacing:-0.04em;line-height:1}
+  .proc-row h3{font-size:clamp(24px,2.6vw,34px);font-weight:800;text-transform:uppercase}
+  .proc-row p{color:var(--mute-l);font-size:16.5px}
+
+  /* SERVICES GRID */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .card{background:var(--bg);padding:44px 38px;transition:background .25s ease}
+  .card:hover{background:var(--bg-3)}
+  .card .n{font-family:'Archivo',sans-serif;font-size:13px;font-weight:800;color:var(--blue);letter-spacing:0.1em;display:block;margin-bottom:20px}
+  .card h3{font-size:26px;font-weight:800;margin-bottom:14px;text-transform:uppercase}
+  .card p{color:var(--mute);font-size:15.5px}
+
+  /* BOOKING BAND */
+  .book-band{background:var(--blue);color:var(--bg);padding:96px 0 88px}
+  .book-head{max-width:940px;margin-bottom:44px}
+  .book-head h2{font-size:clamp(30px,4.6vw,60px);font-weight:900;color:var(--bg);letter-spacing:-0.03em;line-height:1.02}
+  .book-head p{margin-top:20px;font-family:'Archivo',sans-serif;font-size:clamp(18px,2vw,24px);font-weight:700;letter-spacing:-0.02em;color:rgba(14,18,25,0.72)}
+  .book-wrap{background:var(--white);border-radius:6px;padding:8px;overflow:hidden}
+  .book-wrap iframe{width:100%;height:780px;border:0;display:block;border-radius:3px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:56px 0 0}
+  .f-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:52px}
+  .f-col h5{font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+  .f-col a{display:block;font-size:15px;color:var(--white);padding:5px 0;transition:color .2s}
+  .f-col a:hover{color:var(--blue)}
+  .f-about{max-width:420px;font-size:15px;color:var(--mute)}
+  .f-mq{overflow:hidden;border-top:1px solid var(--line);padding:22px 0}
+  .f-mq .mq-track span{font-family:'Archivo',sans-serif;font-size:clamp(38px,7vw,88px);font-weight:900;letter-spacing:-0.04em;text-transform:uppercase;color:rgba(255,255,255,0.06);padding-right:40px;gap:40px}
+  .f-fine{border-top:1px solid var(--line);padding:22px 0;font-size:12.5px;color:var(--mute);letter-spacing:0.04em}
+
+  /* ---------- MOBILE NAV ---------- */
+  .nav-toggle{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--white);margin-left:auto}
+  .nav-toggle svg{width:26px;height:26px;display:block}
+  .nav-toggle .close{display:none}
+  body.menu-open .nav-toggle .close{display:block}
+  body.menu-open .nav-toggle .open{display:none}
+  body.menu-open{overflow:hidden}
+
+  /* ================= TABLET (<=1024px) ================= */
+  @media(max-width:1024px){
+    .wrap{padding:0 28px}
+    .sec{padding:88px 0}
+    .hero{padding:84px 0 70px}
+    .hero h1{font-size:clamp(42px,8vw,74px);max-width:100%}
+    .hero .lede{font-size:17.5px;max-width:100%}
+    .head{margin-bottom:48px}
+    .head h2{font-size:clamp(30px,5vw,48px)}
+    .head p{font-size:16.5px}
+    .grid{grid-template-columns:1fr 1fr}
+    .card{padding:34px 28px}
+    .card h3{font-size:22px}
+    .card p{font-size:15px}
+    .proc-row{grid-template-columns:70px 1fr;gap:24px;padding:38px 0}
+    .proc-row h3{font-size:clamp(22px,3.4vw,28px)}
+    .proc-row p{grid-column:2/-1}
+    .proc-num{font-size:32px}
+    .stat{padding:34px 26px}
+    .book-band{padding:76px 0 70px}
+    .book-head{margin-bottom:36px}
+    .book-wrap iframe{height:700px}
+  }
+
+  /* ================= SMALL TABLET / LARGE PHONE (<=820px) ================= */
+  @media(max-width:820px){
+    .nav-links{
+      position:fixed;inset:82px 0 0;background:var(--bg);
+      flex-direction:column;align-items:flex-start;justify-content:flex-start;
+      gap:0;padding:22px 28px 40px;
+      transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.6,.3,1);
+      display:flex;overflow-y:auto;z-index:75;
+    }
+    body.menu-open .nav-links{transform:translateX(0)}
+    .nav-links a{
+      font-size:24px;font-weight:800;color:var(--white);
+      width:100%;padding:20px 0;border-bottom:1px solid var(--line);
+      letter-spacing:-0.01em;text-transform:uppercase;
+    }
+    .nav-links a sup{font-size:11px}
+    .nav-links .nav-book{display:block;color:var(--blue)}
+    .nav-toggle{display:block;order:3}
+    nav.wrap .btn-sm{display:none}
+    .grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr}
+    .stat{padding:30px 24px;display:flex;align-items:baseline;gap:18px}
+    .stat b{font-size:38px}
+    .stat span{margin-top:0}
+  }
+
+  /* ================= PHONE (<=600px) ================= */
+  @media(max-width:600px){
+    .wrap{padding:0 20px}
+    nav.wrap{height:72px}
+    .nav-links{inset:72px 0 0}
+    section[id]{scroll-margin-top:80px}
+    .sec{padding:64px 0}
+    .hero{padding:56px 0 54px}
+    .hero h1{font-size:clamp(34px,10vw,50px);margin-bottom:24px;hyphens:auto}
+    .hero .lede{font-size:16.5px;margin-bottom:32px}
+    .hero-cta{flex-direction:column;align-items:stretch;gap:12px}
+    .hero-cta .btn{width:100%;justify-content:center;padding:16px 22px}
+    .kicker{font-size:11px;letter-spacing:0.18em;margin-bottom:16px}
+    .head{margin-bottom:34px}
+    .head h2{font-size:clamp(27px,7.4vw,36px)}
+    .head p{font-size:16px;margin-top:16px}
+    .card{padding:28px 22px}
+    .card h3{font-size:20px}
+    .card p{font-size:14.8px}
+    .card .n{margin-bottom:14px}
+    .proc-row{grid-template-columns:1fr;gap:10px;padding:30px 0}
+    .proc-row:hover{padding-left:0}
+    .proc-num{font-size:22px}
+    .proc-row h3{font-size:23px}
+    .proc-row p{grid-column:1/-1;font-size:15.5px}
+    .mq{padding:12px 0}
+    .mq-track span{font-size:12.5px;padding-right:18px;gap:18px}
+    .stat b{font-size:32px}
+    .stat span{font-size:12.8px}
+    .book-band{padding:54px 0 50px}
+    .book-head{margin-bottom:26px}
+    .book-head h2{font-size:clamp(26px,7.4vw,34px)}
+    .book-head p{font-size:17px;margin-top:14px}
+    .book-wrap{padding:5px;border-radius:5px}
+    .book-wrap iframe{height:600px}
+    .f-grid{flex-direction:column;gap:30px;padding-bottom:38px}
+    .f-about{font-size:14.5px}
+    .f-mq .mq-track span{font-size:44px;padding-right:24px;gap:24px}
+    footer{padding-top:40px}
+  }
+
+  /* ================= SMALL PHONE (<=380px) ================= */
+  @media(max-width:380px){
+    .wrap{padding:0 16px}
+    .hero h1{font-size:32px}
+    .book-wrap iframe{height:560px}
+    .btn{padding:14px 20px;font-size:13px}
+  }
+
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">Ecomm<span>Crew</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#process">Process</a>
+      <a href="#services">Services</a>
+      <a href="#book" class="nav-book">Book a Call</a>
+    </div>
+    <a href="#book" class="btn btn-fill btn-sm">Book a Call</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="open" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="close" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="reveal">Your subscription <s>agency</s> <em>partner.</em></h1>
+      <p class="lede reveal">Most brands run Recharge, Loop, or Skio on default settings - the basic skeleton, nothing personalized. We go a layer deeper: implementing every feature the right way, customized to your brand, and reaching every subscriber - so retention, recovered revenue, and LTV actually go up.</p>
+      <div class="hero-cta reveal">
+        <a href="#book" class="btn btn-fill">Book a Discovery Call<svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#services" class="btn btn-out">See how we work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS (PLACEHOLDER NUMBERS) -->
+  <div class="stats">
+    <div class="stat"><b>+00%</b><span>Avg. increase in save rate</span></div>
+    <div class="stat"><b>$000K</b><span>Failed payments recovered</span></div>
+    <div class="stat"><b>00+</b><span>Subscription programs optimized</span></div>
+  </div>
+
+  <div class="mq">
+    <div class="mq-track">
+      <span>Audit &amp; roadmap <i>/</i> Retention &amp; LTV <i>/</i> Payment optimization <i>/</i> Analytics <i>/</i> Upsells <i>/</i> Customer portal <i>/</i></span>
+      <span>Audit &amp; roadmap <i>/</i> Retention &amp; LTV <i>/</i> Payment optimization <i>/</i> Analytics <i>/</i> Upsells <i>/</i> Customer portal <i>/</i></span>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section class="sec light" id="process">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="kicker kicker-d">Our process</span>
+        <h2>Audit. Build. Optimize.</h2>
+        <p>We own your subscription program, with retention experts managing every layer.</p>
+      </div>
+      <div class="proc">
+        <div class="proc-row reveal">
+          <span class="proc-num">01</span>
+          <h3>Audit</h3>
+          <p>We analyze your subscription setup, customer behavior, and performance to identify what's working, what's not, and where the biggest opportunities lie.</p>
+        </div>
+        <div class="proc-row reveal">
+          <span class="proc-num">02</span>
+          <h3>Build</h3>
+          <p>We improve the experiences that matter most - from cancellation flows and payment recovery to rewards and customer portals.</p>
+        </div>
+        <div class="proc-row reveal">
+          <span class="proc-num">03</span>
+          <h3>Optimize</h3>
+          <p>Every change is measured against real business outcomes - then refined. We keep tuning what works, uncover new opportunities, and continue improving your subscription program.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="kicker">What we optimize</span>
+        <h2>Six areas, one subscription program.</h2>
+      </div>
+      <div class="grid">
+        <div class="card reveal">
+          <span class="n">01</span>
+          <h3>Audit &amp; Roadmap</h3>
+          <p>Before making changes, we understand how your subscription program is performing. We review your setup, customer journey, and subscriber data to identify what's working, what's underutilized, and where the biggest opportunities exist - then turn it into a prioritized roadmap.</p>
+        </div>
+        <div class="card reveal">
+          <span class="n">02</span>
+          <h3>Retention &amp; LTV</h3>
+          <p>Every subscriber doesn't cancel for the same reason. We analyze why customers cancel, which products lose subscribers the most, where your save rates are highest, and how segments behave - then build cancellation flows, rewards, and retention journeys around what we find.</p>
+        </div>
+        <div class="card reveal">
+          <span class="n">03</span>
+          <h3>Payment Optimization</h3>
+          <p>Expired cards, insufficient funds, hard declines - most subscribers who churn this way never meant to leave. We build retry schedules that test the card at the right intervals across the billing window, paired with dunning emails and update-card prompts, so failed charges turn back into paid orders.</p>
+        </div>
+        <div class="card reveal">
+          <span class="n">04</span>
+          <h3>Analytics &amp; Dashboard</h3>
+          <p>You can't optimize what you can't see. We set up the reporting that actually matters - churn by cohort, cancellation reasons and save rates, cancellation flow activity logs, customer portal activity. Every decision starts with your own numbers instead of guesswork.</p>
+        </div>
+        <div class="card reveal">
+          <span class="n">05</span>
+          <h3>Upsells &amp; Cross-sells</h3>
+          <p>The best revenue often comes from the customers you already have. We identify where subscribers are most likely to buy again, introduce relevant upsell opportunities, and test offers to increase AOV and lifetime value - without increasing acquisition costs.</p>
+        </div>
+        <div class="card reveal">
+          <span class="n">06</span>
+          <h3>Customer Portal</h3>
+          <p>Your customer portal shouldn't look like every other subscription brand's. We analyze how subscribers interact with it, then optimize around what matters most - reducing churn, promoting upgrades, encouraging swaps, or educating subscribers along the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book-band" id="book">
+    <div class="wrap">
+      <div class="book-head reveal">
+        <h2>We don't hand you a strategy deck. We work hands-on.</h2>
+        <p>Let's get started - book your call today.</p>
+      </div>
+      <div class="book-wrap reveal">
+        <iframe
+          src="https://cal.com/deepak-6x2esy/30min?layout=month_view"
+          title="Book a discovery call with Ecomm Crew"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap f-grid">
+    <div class="f-col">
+      <h5>Ecomm Crew</h5>
+      <p class="f-about">Helping subscription brands maximize retention, recover more revenue, and increase customer lifetime value through data-driven subscription optimization.</p>
+    </div>
+    <div class="f-col">
+      <h5>Get in touch</h5>
+      <a href="mailto:deepak@ecommcrew.co">deepak@ecommcrew.co</a>
+    </div>
+  </div>
+  <div class="f-mq">
+    <div class="mq-track">
+      <span>Ecomm Crew <i>/</i> Ecomm Crew <i>/</i> Ecomm Crew <i>/</i></span>
+      <span>Ecomm Crew <i>/</i> Ecomm Crew <i>/</i> Ecomm Crew <i>/</i></span>
+    </div>
+  </div>
+  <div class="wrap"><div class="f-fine">© <span id="yr"></span> Ecomm Crew. All rights reserved.</div></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // mobile menu
+  const tgl=document.getElementById('navToggle');
+  const nl=document.getElementById('navLinks');
+  tgl.addEventListener('click',()=>{
+    const open=document.body.classList.toggle('menu-open');
+    tgl.setAttribute('aria-expanded',open);
+  });
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    document.body.classList.remove('menu-open');
+    tgl.setAttribute('aria-expanded','false');
+  }));
+</script>
+
+</body>
+</html>
